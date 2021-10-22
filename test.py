@@ -36,8 +36,8 @@ def ltc_login(login_email,width,height):
 
 		serv,ops=mod_driver.build_driver(width,height)
 		driver = webdriver.Firefox(service=serv, options=ops)
-		extension_path="/root/OUOIO/LTC/src/canvasblocker44b.xpi"
-		extension_path_ublock="/root/OUOIO/LTC/src/uBlock0_1.36.2.firefox.xpi"
+		extension_path=cnf_bvb.extension_path
+		extension_path_ublock=cnf_bvb.extension_path_ublock
 		driver.install_addon(extension_path, True)
 		driver.install_addon(extension_path_ublock, True)
 		driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
@@ -109,7 +109,7 @@ def daily_offer(driver):
 
 
 def audio_fonction(download_link):
-	data = open('1.mp3', 'rb').read()
+	#data = open('1.mp3', 'rb').read()
 	print("ok download_link")
 	request = requests.get(download_link)
 	audio_file = io.BytesIO(request.content)
